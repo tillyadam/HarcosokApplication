@@ -46,11 +46,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBox_harcosok = new System.Windows.Forms.ListBox();
             this.listBox_kepessegek = new System.Windows.Forms.ListBox();
-            this.listBox_kepessegLeirasa = new System.Windows.Forms.ListBox();
             this.button_modosit = new System.Windows.Forms.Button();
             this.button_torles = new System.Windows.Forms.Button();
             this.label_vonal1 = new System.Windows.Forms.Label();
             this.label_vonal2 = new System.Windows.Forms.Label();
+            this.textBox_kepessegLeirasa = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label_harcosLetrehozasa
@@ -90,6 +90,7 @@
             this.button_letrehozas.TabIndex = 3;
             this.button_letrehozas.Text = "Létrehozás";
             this.button_letrehozas.UseVisualStyleBackColor = true;
+            this.button_letrehozas.Click += new System.EventHandler(this.button_letrehozas_Click);
             // 
             // label_kepessegHozzaadasa
             // 
@@ -166,6 +167,7 @@
             this.button_hozaad.TabIndex = 11;
             this.button_hozaad.Text = "Hozzáadás";
             this.button_hozaad.UseVisualStyleBackColor = true;
+            this.button_hozaad.Click += new System.EventHandler(this.button_hozaad_Click);
             // 
             // label_harcosok
             // 
@@ -206,6 +208,7 @@
             this.listBox_harcosok.Name = "listBox_harcosok";
             this.listBox_harcosok.Size = new System.Drawing.Size(200, 280);
             this.listBox_harcosok.TabIndex = 15;
+            this.listBox_harcosok.SelectedIndexChanged += new System.EventHandler(this.listBox_harcosok_SelectedIndexChanged);
             // 
             // listBox_kepessegek
             // 
@@ -216,16 +219,7 @@
             this.listBox_kepessegek.Name = "listBox_kepessegek";
             this.listBox_kepessegek.Size = new System.Drawing.Size(200, 280);
             this.listBox_kepessegek.TabIndex = 16;
-            // 
-            // listBox_kepessegLeirasa
-            // 
-            this.listBox_kepessegLeirasa.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Italic);
-            this.listBox_kepessegLeirasa.FormattingEnabled = true;
-            this.listBox_kepessegLeirasa.ItemHeight = 23;
-            this.listBox_kepessegLeirasa.Location = new System.Drawing.Point(498, 400);
-            this.listBox_kepessegLeirasa.Name = "listBox_kepessegLeirasa";
-            this.listBox_kepessegLeirasa.Size = new System.Drawing.Size(290, 165);
-            this.listBox_kepessegLeirasa.TabIndex = 17;
+            this.listBox_kepessegek.SelectedIndexChanged += new System.EventHandler(this.listBox_kepessegek_SelectedIndexChanged);
             // 
             // button_modosit
             // 
@@ -236,6 +230,7 @@
             this.button_modosit.TabIndex = 18;
             this.button_modosit.Text = "Módosít";
             this.button_modosit.UseVisualStyleBackColor = true;
+            this.button_modosit.Click += new System.EventHandler(this.button_modosit_Click);
             // 
             // button_torles
             // 
@@ -246,6 +241,7 @@
             this.button_torles.TabIndex = 19;
             this.button_torles.Text = "Törlés";
             this.button_torles.UseVisualStyleBackColor = true;
+            this.button_torles.Click += new System.EventHandler(this.button_torles_Click);
             // 
             // label_vonal1
             // 
@@ -263,16 +259,25 @@
             this.label_vonal2.Size = new System.Drawing.Size(773, 2);
             this.label_vonal2.TabIndex = 21;
             // 
+            // textBox_kepessegLeirasa
+            // 
+            this.textBox_kepessegLeirasa.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Italic);
+            this.textBox_kepessegLeirasa.Location = new System.Drawing.Point(498, 400);
+            this.textBox_kepessegLeirasa.Multiline = true;
+            this.textBox_kepessegLeirasa.Name = "textBox_kepessegLeirasa";
+            this.textBox_kepessegLeirasa.Size = new System.Drawing.Size(290, 180);
+            this.textBox_kepessegLeirasa.TabIndex = 22;
+            // 
             // Form_Adatbaziskezelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 745);
+            this.Controls.Add(this.textBox_kepessegLeirasa);
             this.Controls.Add(this.label_vonal2);
             this.Controls.Add(this.label_vonal1);
             this.Controls.Add(this.button_torles);
             this.Controls.Add(this.button_modosit);
-            this.Controls.Add(this.listBox_kepessegLeirasa);
             this.Controls.Add(this.listBox_kepessegek);
             this.Controls.Add(this.listBox_harcosok);
             this.Controls.Add(this.label2);
@@ -293,7 +298,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form_Adatbaziskezelo";
             this.Text = "Adatbázis";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Adatbaziskezelo_FormClosing);
             this.Load += new System.EventHandler(this.Form_Adatbaziskezelo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -320,11 +324,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox_harcosok;
         private System.Windows.Forms.ListBox listBox_kepessegek;
-        private System.Windows.Forms.ListBox listBox_kepessegLeirasa;
         private System.Windows.Forms.Button button_modosit;
         private System.Windows.Forms.Button button_torles;
         private System.Windows.Forms.Label label_vonal1;
         private System.Windows.Forms.Label label_vonal2;
+        private System.Windows.Forms.TextBox textBox_kepessegLeirasa;
     }
 }
 
