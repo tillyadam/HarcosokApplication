@@ -13,6 +13,16 @@ namespace Adatbaziskezeles
 {
     public partial class Form_Adatbaziskezelo : Form
     {
+        private void Form_Adatbaziskezelo_Load(object sender, EventArgs e)
+        {
+
+            connect();
+            tablesCreate();
+            listBoxHarcosokLoad();
+            comboBoxHasznaloLoad();
+            disconnect();
+        }
+
         MySqlConnection conn = null;
         MySqlCommand sql = null;
         public Form_Adatbaziskezelo()
@@ -77,16 +87,6 @@ namespace Adatbaziskezeles
         private void disconnect()
         {
             conn.Close();
-        }
-
-        private void Form_Adatbaziskezelo_Load(object sender, EventArgs e)
-        {
-
-            connect();
-            tablesCreate();
-            listBoxHarcosokLoad();
-            comboBoxHasznaloLoad();
-            disconnect();
         }
 
         private void listBoxHarcosokLoad()
@@ -179,7 +179,7 @@ namespace Adatbaziskezeles
             if (sql.ExecuteNonQuery() == 1)
             {
                 MessageBox.Show("Successful!");
-                listBoxKepessegekLoad();
+                listBoxHarcosokLoad();
                 comboBox_hasznalo.SelectedIndex = -1;
                 textBox_kepessegNeve.Text = "";
                 textBox_leiras.Text = "";
