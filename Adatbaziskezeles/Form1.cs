@@ -128,24 +128,33 @@ namespace Adatbaziskezeles
                 textBox_harcosNeve.Focus();
                 return;
             }
-
-            sql.CommandText = "INSERT INTO `harcosok`(" +
-                                "`id`, `nev`, `letrehozas`) " +
-                                "VALUES (null,'" + nev + "', NOW())";
-
-            if (sql.ExecuteNonQuery() == 1)
+            if (listBox_harcosok.Items.Contains(nev))
             {
-                MessageBox.Show("Successful!");
-                textBox_harcosNeve.Clear();
-
+                MessageBox.Show("Már van ilyen nevű harcos!");
+                textBox_harcosNeve.Focus();
+                return;
             }
             else
             {
-                MessageBox.Show("Error!");
-            }
+                sql.CommandText = "INSERT INTO `harcosok`(" +
+                                "`id`, `nev`, `letrehozas`) " +
+                                "VALUES (null,'" + nev + "', NOW())";
 
-            comboBoxHasznaloLoad();
-            listBoxHarcosokLoad();
+                if (sql.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Successful!");
+                    textBox_harcosNeve.Clear();
+
+                }
+                else
+                {
+                    MessageBox.Show("Error!");
+                }
+
+                comboBoxHasznaloLoad();
+                listBoxHarcosokLoad();
+            }
+            
             disconnect();
         }
 
